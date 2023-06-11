@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import { useState,useEffect } from 'react';
+import dogimage from './components/dogimage';
 import './App.css';
 
 function App() {
+
+  const [dogSrc,changeDog] = useState("https://t3.ftcdn.net/jpg/03/35/13/14/360_F_335131435_DrHIQjlOKlu3GCXtpFkIG1v0cGgM9vJC.jpg");
+
+  function getNewDog(){
+    fetch('https://dog.ceo/api/breeds/image/random')
+    .then(res => res.json())
+    .then(data => {
+      changeDog(data.message)
+
+  
+    });
+
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Random Kutya Generátor</h2>
+      <div className='wrapper'>
+        <div className='dog-container'>
+          <img className='dog' src={dogSrc} alt="" />
+        </div>
+      <button onClick={getNewDog}>Kutya</button>
+      </div>
     </div>
   );
 }
