@@ -19,12 +19,12 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Random Kutya Generátor</h2>
+      <h2>Generate a Random Dog</h2>
       <div className='wrapper'>
         <div className='dog-container'>
           <img className='dog' src={dogSrc} alt="" />
         </div>
-      <button onClick={getNewDog}>Kutya</button>
+      <button onClick={getNewDog}>DOG 🦮❤️</button>
       </div>
     </div>
   );
